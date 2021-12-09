@@ -7,6 +7,20 @@ public extension String {
     }
 }
 
+public extension String {
+    func range(in string: String) -> NSRange {
+        guard let range = string.range(of: self) else {
+            preconditionFailure()
+        }
+        
+        return NSRange(range, in: string)
+    }
+    
+    func range() -> NSRange? {
+        return range(in: self)
+    }
+}
+
 extension String {
     
     /// Iterates over the given strings and returns the maximum width
